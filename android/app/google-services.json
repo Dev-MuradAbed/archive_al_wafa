@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "1911779390",
+    "project_id": "archef-alwafa",
+    "storage_bucket": "archef-alwafa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1911779390:android:51b0b49431b944b050a16f",
+        "android_client_info": {
+          "package_name": "com.Al_wafa.arch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1911779390-ulnk80k1f8d6p7apco8v4dklt80kiuq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDne1U3gVZpppndlQw3Hve-hs_BkWlVIVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1911779390-ulnk80k1f8d6p7apco8v4dklt80kiuq9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1911779390-ob62d3gmsc23ppt2pk33sa8rt1oejlrr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Alwafa.arch"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1911779390:android:954d9dcc277c747f50a16f",
+        "android_client_info": {
+          "package_name": "com.archive.archive_al_wafa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1911779390-ulnk80k1f8d6p7apco8v4dklt80kiuq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDne1U3gVZpppndlQw3Hve-hs_BkWlVIVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1911779390-ulnk80k1f8d6p7apco8v4dklt80kiuq9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1911779390-ob62d3gmsc23ppt2pk33sa8rt1oejlrr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Alwafa.arch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
