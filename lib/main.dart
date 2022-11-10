@@ -61,32 +61,24 @@ class _HomePageState extends State<HomePage> {
     // final googleSignInAuthentication =
     //
     // await googleSignInAccount?.authentication;
-    AuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: "ya29.a0AeTM1id6WPrGFzJY83_5moEWLcBBWAgTbsrHrN90bYIyuQY9XluekQmIyJeXwiSnsYNEVkKqsMWCxoyGa5sz3occNEqaZeOxpT1YJ1ixzQr-jQk_LlFO1_9I9wkPVqbW1USmd5NVa2XTxYgAv_oKar4FU2usAgaCgYKAdQSARMSFQHWtWOm3Kr5Km6tt16VlIGq2X_wwA0165",
+    // AuthCredential credential = GoogleAuthProvider.credential(
+    //   accessToken: "ya29.a0AeTM1id6WPrGFzJY83_5moEWLcBBWAgTbsrHrN90bYIyuQY9XluekQmIyJeXwiSnsYNEVkKqsMWCxoyGa5sz3occNEqaZeOxpT1YJ1ixzQr-jQk_LlFO1_9I9wkPVqbW1USmd5NVa2XTxYgAv_oKar4FU2usAgaCgYKAdQSARMSFQHWtWOm3Kr5Km6tt16VlIGq2X_wwA0165",
+    //
+    //   idToken: null,
+    //
+    // );
 
-      idToken: null,
+    // UserCredential authResult = await FirebaseAuth.instance.signInWithCredential(credential);
 
-    );
-    print("accessToken ${credential.accessToken}");
-    print("token ${credential.token}");
-    print("providerId ${credential.providerId}");
-    // print("providerId ${googleSignInAuthentication?.idToken}");
+    // User? _user = authResult.user;
 
-    UserCredential authResult = await FirebaseAuth.instance.signInWithCredential(credential);
+    // assert(!_user!.isAnonymous);
 
-    User? _user = authResult.user;
+    // assert(await _user!.getIdToken() != null);
 
-    assert(!_user!.isAnonymous);
+    // User? currentUser =  FirebaseAuth.instance.currentUser;
+    // assert(_user!.uid == currentUser?.uid);
 
-    assert(await _user!.getIdToken() != null);
-
-    User? currentUser =  FirebaseAuth.instance.currentUser;
-    assert(_user!.uid == currentUser?.uid);
-
-    print("User Name: ${_user!.displayName}");
-    print("User Email ${_user.email}");
-    print("User refreshToken ${_user.refreshToken}");
-    print("User getIdToken ${_user.getIdToken()}");
 
   }
 // }
@@ -137,7 +129,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           ElevatedButton(
               onPressed: () async{
-                await signInWithGoogle();
+                // await signInWithGoogle();
                 Navigator.pushNamed(context, '/FormSpeak');
               },
               child: const Text('استمارة نطق')),

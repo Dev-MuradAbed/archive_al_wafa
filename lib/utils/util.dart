@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart' as ga;
+import 'package:googleapis/shared.dart';
 import 'package:open_file/open_file.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
@@ -26,17 +27,17 @@ Future<Uint8List> generatedPdf(final PdfPageFormat format) async {
   doc.addPage(pw.MultiPage(
       pageTheme: pageTheme,
       header: (final context) => pw.Image(
-            alignment: pw.Alignment.topLeft,
-            logoImage,
-            fit: pw.BoxFit.contain,
-          ),
+        alignment: pw.Alignment.topLeft,
+        logoImage,
+        fit: pw.BoxFit.contain,
+      ),
       // footer: (final context) => pw.Image(
       //       footerImage,
       //       fit: pw.BoxFit.scaleDown,
       //     ),
       build: (context) => [
         textSpeakPage1(),
-          ]));
+      ]));
 
   return doc.save();
 }
@@ -76,17 +77,22 @@ final googleSignIn = GoogleSignIn.standard(scopes: [
 Future<drive.DriveApi?> _getDriveApi(BuildContext context) async {
   final googleUser = await googleSignIn.signIn();
   print("googleUser ${googleUser?.authHeaders}");
-  final headers = await googleUser?.authHeaders;
-  // {
-  //   'Authorization': 'Bearer ya29.a0AeTM1iesMhlMFj88bO6R8IAvbWhedcP3YTMf9mVlSw7imFn1cKBbpO2noW-io1w9J2ADOT4XkYx01qGmBTUIqPd5vY8SuXmdokDQoe41dYKfgBxnfhF-yuMYsymKQR62JaEa7i4Twn6owe8MB4SiL9guOmahKQaCgYKARcSARMSFQHWtWOmzI5IzNKQJa6emQUurbS94w0165',
-  //   'X-Goog-AuthUser': '0',
-  // };
+  String? token ="ya29.a0AeTM1ifa4uxbu_BbUQNtSeErsgZ78LukTas4ihogPkKFgRV1XXTLObm881vj4gD9Gcs79LRbWYndrsgjbfk2pFGlCL9XCJRXNx6Uz9R0pYw8q6gEMhm2lzQvnUxsH-YqZnG2kEp2wAkWm65cUVl8S0T0jqrzjgaCgYKAcsSARMSFQHWtWOmIBqKK-6pOSGy6KO-cRrm9Q0165";
+      // (await googleUser?.authentication)?.accessToken;
+  final headers=<String,String>{
+    'Authorization': 'Bearer $token',
+    // TODO(kevmoo): Use the correct value once it's available from authentication
+    // See https://github.com/flutter/flutter/issues/80905
+    'X-Goog-AuthUser': '0',
+  };
+
   if (headers == null) {
     await showMessage(context, "Sign-in first", "Error");
     return null;
   }
   final client = GoogleAuthClient(headers);
   final driveApi = drive.DriveApi(client);
+  print('driveApi :: ${client._headers}');
   return driveApi;
 }
 
@@ -268,15 +274,15 @@ Future<pw.PageTheme> _myPageTheme() async {
       ),
       orientation: pw.PageOrientation.portrait,
       buildBackground: (final context) => pw.FullPage(
-            ignoreMargins: true,
-            child: pw.Watermark(
-                angle: 25,
-                child: pw.Opacity(
-                    opacity: 0.5,
-                    child: pw.Image(
-                      alignment: pw.Alignment.center,
-                      watermark,
-                      fit: pw.BoxFit.cover,
-                    ))),
-          ));
+        ignoreMargins: true,
+        child: pw.Watermark(
+            angle: 25,
+            child: pw.Opacity(
+                opacity: 0.5,
+                child: pw.Image(
+                  alignment: pw.Alignment.center,
+                  watermark,
+                  fit: pw.BoxFit.cover,
+                ))),
+      ));
 }

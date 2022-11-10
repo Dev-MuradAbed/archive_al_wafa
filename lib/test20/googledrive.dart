@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:archive_al_wafa/test20/secure_storage.dart';
+import 'package:get/get.dart';
 import 'package:googleapis/drive/v3.dart'as ga;
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:path/path.dart'as p;
@@ -19,6 +20,7 @@ class GoogleDrive{
       //Need user authentication
       var authClient=await clientViaUserConsent(ClientId(clientId,_clientSecret),
           _scopes, (uri) {
+        print(uri);
             //Open Url in Browser
             launchUrl(Uri.parse(uri));
           });
